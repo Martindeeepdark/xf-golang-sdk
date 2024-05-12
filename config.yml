@@ -1,5 +1,5 @@
 xfapi:
-  appid: ""
-  apiKey: ""
-  apiSecret: ""
-  hostUrl: ""
+  appid: "e6f3bdcc"
+  apiKey: "6091ba25c093e2021b603f9ac703e4f4"
+  apiSecret: "YjQyZjYzNzhjODNiYjBlM2U2ZTAyN2Yx"
+  hostUrl: "wss://spark-api.xf-yun.com/v3.5/chat"

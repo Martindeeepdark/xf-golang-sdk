@@ -3,19 +3,19 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/Martindeeepdark/xf-golang-sdk/chat"
 	"os"
-
-	"go-sdk/chat"
 )
 
 func main() {
 	appID := chat.EnvString("APP_ID")
 	apiKey := chat.EnvString("API_KEY")
 	apiSecret := chat.EnvString("API_SECRET")
+	hosturl := chat.EnvString("HOST_URL")
 	if appID == "" || apiKey == "" || apiSecret == "" {
-		panic("APP_ID, API_KEY, API_SECRET are required")
+		panic("APP_ID, API_KEY, API_SECRET,HOST_URL are required")
 	}
-	s := chat.NewServer(appID, apiKey, apiSecret)
+	s := chat.NewServer(appID, apiKey, apiSecret, hosturl)
 	session, sessionErr := s.GetSession("123456789")
 
 	if sessionErr != nil {

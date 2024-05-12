@@ -8,11 +8,12 @@ type Server struct {
 	cache     map[string]*Session
 }
 
-func NewServer(appID, apiKey, apiSecret string) *Server {
+func NewServer(appID, apiKey, apiSecret, hosturl string) *Server {
 	svr := &Server{
 		appID:     appID,
 		apiKey:    apiKey,
 		apiSecret: apiSecret,
+		hosturl:   hosturl,
 		cache:     map[string]*Session{},
 	}
 

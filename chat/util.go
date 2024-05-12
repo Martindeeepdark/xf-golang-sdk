@@ -47,6 +47,8 @@ func EnvString(key string) string {
 		return config.Xfapi.ApiKey
 	case "API_SECRET":
 		return config.Xfapi.ApiSecret
+	case "HOST_URL":
+		return config.Xfapi.HostUrl
 	default:
 		fmt.Printf("Key %s not found\n", key)
 		return ""

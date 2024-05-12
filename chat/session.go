@@ -1,5 +1,7 @@
 package chat
 
+import "fmt"
+
 type Session struct {
 	svr *Server
 	UID string
@@ -12,6 +14,9 @@ func NewSession(svr *Server, uid string) *Session {
 		UID: uid,
 	}
 
+	domain := getDomainFromRule(session.svr.hosturl)
+	fmt.Println("Domain value:", domain) // 打印Domain的值
+
 	session.Req = &Request{
 		Header: &RequestHeader{
 			AppID: session.svr.appID,
@@ -19,7 +24,7 @@ func NewSession(svr *Server, uid string) *Session {
 		},
 		Parameter: &RequestParameter{
 			Chat: &SystemSetting{
-				Domain: getDomainFromRule(session.svr.hosturl),
+				Domain: domain,
 			},
 		},
 		Payload: &RequestPayload{
@@ -31,6 +36,8 @@ func NewSession(svr *Server, uid string) *Session {
 }
 
 func getDomainFromRule(hostUrl string) string {
+	//选择默认调用3.5模型接口，此后自行修改hostUrl
+	fmt.Println("hostUrl value:", hostUrl)
 	switch hostUrl {
 	case "wss://spark-api.xf-yun.com/v3.5/chat":
 		return "generalv3.5"
@@ -41,7 +48,7 @@ func getDomainFromRule(hostUrl string) string {
 	case "wss://spark-api.xf-yun.com/v1.1/chat":
 		return "general"
 	default:
-		return "general" // Replace with appropriate default or error handling
+		return "general"
 	}
 }
 
