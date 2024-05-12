@@ -1,4 +1,4 @@
-module go-sdk
+module github.com/Martindeeepdark/xf-golang-sdk
 
 go 1.22
 
