@@ -36,7 +36,7 @@ func NewSession(svr *Server, uid string) *Session {
 }
 
 func getDomainFromRule(hostUrl string) string {
-	//选择默认调用3.5模型接口，此后自行修改hostUrl
+	//选择默认调用v1模型接口，此后自行修改hostUrl
 	fmt.Println("hostUrl value:", hostUrl)
 	switch hostUrl {
 	case "wss://spark-api.xf-yun.com/v3.5/chat":
